@@ -1,16 +1,27 @@
 # CopilotCal
 
-CopilotCal je týdenní kalendář pro plánování a přehled událostí. Zobrazuje rozvrh vybraného týdne včetně jeho čísla a rozsahu.
+## Přehled
 
-## Co aplikace umí
+- Týdenní kalendář pro plánování a přehled událostí.
+- Zobrazuje rozvrh vybraného týdne, jeho číslo a rozsah.
 
-- Přecházet na předchozí a následující týden nebo se vrátit na dnešek.
-- Zobrazit a vytisknout týdenní rozvrh.
-- Přidávat, upravovat a mazat události.
-- Zobrazit podrobnosti události: popis, datum a čas, kategorii, místo, prioritu, připomínku a opakování.
+## Funkce
+
+- Kalendář:
+  - Přechod na předchozí nebo následující týden.
+  - Návrat na dnešek.
+  - Zobrazení a tisk týdenního rozvrhu.
+- Události:
+  - Přidávání, úprava a mazání.
+  - Zobrazení podrobností: popis, datum a čas, kategorii, místo, prioritu, připomínku a opakování.
 
 ## Události
 
-Při zadávání události lze vyplnit název, datum a čas začátku i konce. Dále je možné přidat popis, místo, kategorii, prioritu a připomínku v minutách před událostí. Událost může být nastavena jako týdenně se opakující s výběrem dnů v týdnu.
-
-Kategorie v nabídce jsou **Práce**, **Osobní**, **Zdraví & Sport**, **Rodina** a **Vzdělávání**. Prioritu lze nastavit jako nízkou, střední nebo vysokou.
+- Základní údaje:
+  - Název, datum a čas začátku i konce.
+  - Popis a místo.
+- Zařazení a plánování:
+  - Kategorie: Práce, Osobní, Zdraví & Sport, Rodina nebo Vzdělávání.
+  - Priorita: nízká, střední nebo vysoká.
+  - Připomínka nastavená v minutách před událostí.
+  - Týdenní opakování s výběrem dnů v týdnu.
