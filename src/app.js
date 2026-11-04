@@ -53,6 +53,7 @@ async function init() {
     renderCalendar();
     setupEventListeners();
     scrollToWorkingHours();
+    scheduleDateRefresh();
 }
 
 /** Uložení referencí na klíčové DOM elementy */
@@ -64,6 +65,8 @@ function cacheDomReferences() {
     dom.calendarBody = document.getElementById('calendarBody');
     dom.timeColumn = document.getElementById('timeColumn');
     dom.categoryList = document.getElementById('categoryList');
+    dom.miniCalendarTitle = document.getElementById('miniCalendarTitle');
+    dom.miniCalendarGrid = document.getElementById('miniCalendarGrid');
     dom.eventDetailModal = document.getElementById('eventDetailModal');
     dom.eventFormModal = document.getElementById('eventFormModal');
     dom.eventForm = document.getElementById('eventForm');
@@ -176,10 +179,22 @@ function generateId() {
 
 /** Překreslení celého kalendáře */
 function renderCalendar() {
+    renderMiniCalendar();
     renderWeekInfo();
     renderCalendarHeader();
     renderTimeColumn();
     renderDayColumns();
+}
+
+function scheduleDateRefresh() {
+    const now = new Date();
+    const nextDay = new Date(now);
+    nextDay.setHours(24, 0, 0, 0);
+
+    setTimeout(() => {
+        renderCalendar();
+        scheduleDateRefresh();
+    }, nextDay.getTime() - now.getTime());
 }
 
 /** Zobrazení informací o aktuálním týdnu v hlavičce */
@@ -405,6 +420,56 @@ function handleCategoryToggle(e) {
     }
     saveSettings();
     renderCalendar();
+}
+
+// ===== Náhled měsíce =====
+
+/** Vytvoření buňky mini kalendáře s textem a třídou */
+function createMiniCalendarCell(className, text = '') {
+    const cell = document.createElement('div');
+    cell.className = className;
+    cell.textContent = text;
+    return cell;
+}
+
+/** Vykreslení náhledu aktuálního měsíce v sidebaru */
+function renderMiniCalendar() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const today = getDateString(now);
+
+    const title = now.toLocaleDateString('cs-CZ', { month: 'long', year: 'numeric' });
+    dom.miniCalendarTitle.textContent = title.charAt(0).toUpperCase() + title.slice(1);
+    dom.miniCalendarGrid.innerHTML = '';
+
+    // Hlavička: prázdná buňka nad čísly týdnů a zkratky dnů
+    dom.miniCalendarGrid.appendChild(createMiniCalendarCell('mini-calendar-week'));
+    DAY_NAMES.forEach(name => {
+        dom.miniCalendarGrid.appendChild(createMiniCalendarCell('mini-calendar-weekday', name.slice(0, 2)));
+    });
+
+    const firstDay = new Date(year, month, 1);
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const offset = (firstDay.getDay() + 6) % 7;
+    const rowCount = Math.ceil((offset + daysInMonth) / 7);
+
+    for (let row = 0; row < rowCount; row++) {
+        const rowStart = new Date(year, month, 1 - offset + row * 7);
+        dom.miniCalendarGrid.appendChild(createMiniCalendarCell('mini-calendar-week', getWeekNumber(rowStart)));
+
+        for (let col = 0; col < 7; col++) {
+            const date = new Date(year, month, 1 - offset + row * 7 + col);
+            if (date.getMonth() !== month) {
+                dom.miniCalendarGrid.appendChild(document.createElement('div'));
+                continue;
+            }
+            const isToday = getDateString(date) === today;
+            dom.miniCalendarGrid.appendChild(
+                createMiniCalendarCell(isToday ? 'mini-calendar-day is-today' : 'mini-calendar-day', date.getDate())
+            );
+        }
+    }
 }
 
 // ===== Detail události =====

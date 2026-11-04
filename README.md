@@ -10,6 +10,7 @@
 - Kalendář:
   - Přechod na předchozí nebo následující týden.
   - Návrat na dnešek.
+  - Náhled aktuálního měsíce v levém panelu se zvýrazněným dnešním dnem a čísly týdnů, který se automaticky obnovuje při změně dne.
   - Zobrazení a tisk týdenního rozvrhu.
 - Události:
   - Přidávání, úprava a mazání.

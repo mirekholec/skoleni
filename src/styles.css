@@ -174,6 +174,14 @@ body { font-family: var(--font-family); font-size: 14px; line-height: 1.5; color
     color: var(--color-text);
 }
 
+/* Sidebar – náhled měsíce */
+.mini-calendar { margin-top: 24px; }
+.mini-calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px; }
+.mini-calendar-grid.has-week-numbers { grid-template-columns: 22px repeat(7, minmax(0, 1fr)); }
+.mini-calendar-weekday, .mini-calendar-week { font-size: 11px; line-height: 24px; text-align: center; color: var(--color-text-light); }
+.mini-calendar-day { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 24px; aspect-ratio: 1; align-self: center; margin: 0 auto; border-radius: 50%; font-size: 12px; color: var(--color-text); }
+.mini-calendar-day.is-today { background-color: var(--color-primary); color: #ffffff; font-weight: 600; }
+
 /* Kalendář – hlavička */
 .calendar-header-spacer {
     border-right: 1px solid var(--color-border);
