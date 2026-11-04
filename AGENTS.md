@@ -6,7 +6,7 @@ Základní informace o projektu jsou v souboru `README.md`.
 - data se uchovávají výhradně v localstorage webového prohlížeče
 - čistota, udržitelnost a srozumitelnost kódu má prioritu i před výkonností
 - vždy při práci s CSS soubory respektuj .github/instructions
-
+- nikdy nespouštěj playwright a netestuj UI, pokud to nutně nepotřebuješ pro navazující krok nebo nejsi explicitně požádán
 
 ## Jazyková nastavení a komunikace
 
