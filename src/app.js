@@ -59,6 +59,7 @@ async function init() {
 function cacheDomReferences() {
     dom.weekNumber = document.getElementById('weekNumber');
     dom.weekRange = document.getElementById('weekRange');
+    dom.calendar = document.getElementById('calendar');
     dom.calendarHeader = document.getElementById('calendarHeader');
     dom.calendarBody = document.getElementById('calendarBody');
     dom.timeColumn = document.getElementById('timeColumn');
@@ -357,7 +358,7 @@ function navigateToday() {
 /** Posun scrollu na začátek pracovních hodin */
 function scrollToWorkingHours() {
     const startHour = parseInt(state.settings.workingHours.start);
-    dom.calendarBody.scrollTop = (startHour - 1) * HOUR_HEIGHT;
+    dom.calendar.scrollTop = (startHour - 1) * HOUR_HEIGHT;
 }
 
 // ===== Kategorie =====
