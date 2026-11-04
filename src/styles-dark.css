@@ -1,0 +1,44 @@
+/* Temný barevný překryv; načítat za styles.css. */
+:root {
+    color-scheme: dark;
+    --color-bg: #121820;
+    --color-surface: #1b222c;
+    --color-border: #36414d;
+    --color-border-light: #2c3540;
+    --color-text: #e7edf4;
+    --color-text-secondary: #b1bdca;
+    --color-text-light: #8e9ba9;
+    --color-today: #233a53;
+    --color-working-hours: #1b222c;
+    --color-non-working: #161d25;
+    --color-primary: #76b9ff;
+    --color-primary-hover: #9acaff;
+    --color-danger: #b83e3a;
+    --color-danger-hover: #ce4a45;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.32);
+    --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+.btn-primary {
+    color: #15212d;
+}
+
+.calendar-header-cell.is-today .day-date {
+    color: #15212d;
+}
+
+.hour-slot:hover {
+    background-color: #2a3542;
+}
+
+.event-block {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+}
+
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.62);
+}
+
+.form-input:focus {
+    box-shadow: 0 0 0 2px rgba(118, 185, 255, 0.28);
+}

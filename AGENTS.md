@@ -5,6 +5,7 @@ Základní informace o projektu jsou v souboru `README.md`.
 - aplikace musí být spustitelná vždy pouhým otevřením souboru `index.html` bez serveru
 - data se uchovávají výhradně v localstorage webového prohlížeče
 - čistota, udržitelnost a srozumitelnost kódu má prioritu i před výkonností
+- vždy při práci s CSS soubory respektuj .github/instructions
 
 
 ## Jazyková nastavení a komunikace
