@@ -1,0 +1,1 @@
+- nikdy nesmíš číst soubory v této složce pokud nejsi explicitně požádán
